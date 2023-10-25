@@ -1,0 +1,30 @@
+function main(tempF) {
+  let result;
+
+  function convertFahrenheitToCelsius(fahrenheit) {
+    return ((fahrenheit - 32) * 5/9).toFixed(1);
+  }
+
+  function hasFever(fahrenheit) {
+    const celsius = convertFahrenheitToCelsius(fahrenheit);
+    return celsius >= 38;
+  }
+
+  const celsius = convertFahrenheitToCelsius(tempF);
+
+  result = `Temperature in Fahrenheit: ${tempF}°F\n`;
+  result += `Temperature in Celsius: ${celsius}°C\n`;
+
+  if (hasFever(tempF)) {
+    result += "The patient has a fever.";
+  } else {
+    result += "The patient does not have a fever.";
+  }
+
+  return result;
+}
+
+// Example usage:
+const patientTemperatureFahrenheit = 100.4; // Change this to the patient's temperature in Fahrenheit
+const output = main(patientTemperatureFahrenheit);
+console.log(output);
